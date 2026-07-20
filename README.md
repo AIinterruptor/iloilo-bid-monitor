@@ -4,7 +4,7 @@ Tracks public procurement/bid postings across:
 
 - **Iloilo City** BAC — [iloilocity.gov.ph/bids-and-awards-committee](https://iloilocity.gov.ph/bids-and-awards-committee/)
 - **Iloilo Province** BAC — [iloilo.gov.ph/en/bac-reports-view](https://iloilo.gov.ph/en/bac-reports-view)
-- **Guimaras Province** Transparency (Invitation to Bid, Bid Supplement, Invitation to Quote, Negotiated/Small Value Procurement, Notice of Awards) — [guimaras.gov.ph](https://guimaras.gov.ph/transparency/)
+- **Guimaras Province** Transparency — Invitation to Bid and Bid Supplement — [guimaras.gov.ph](https://guimaras.gov.ph/transparency/)
 
 and surfaces them as a filterable, categorized dashboard.
 
@@ -52,6 +52,13 @@ pytest tests/
 - **Guimaras entries are metadata-only.** Postings there are scanned/image
   PDFs — no OCR is attempted. Title, reference number, category, and dates
   come from the page structure around each PDF link, not the PDF content.
+- **Guimaras subsections beyond Invitation to Bid and Bid Supplement are
+  deferred.** A live survey (2026-07-20) found Invitation to Quote, Negotiated
+  Procurement, Small Value Procurement, and Notice of Awards have not been
+  updated with current postings — full-page year-token counts showed their
+  newest content dated 2019, 2019, 2020, and 2017/2021 respectively. They're
+  deferred like PhilGEPS rather than scraped for dead data; worth revisiting
+  if the province resumes posting to them.
 - **Iloilo Province scraping is incremental**, not a full crawl. It walks the
   results newest-first and stops once it reaches a posting already present in
   `docs/data/postings.json` (or a 5-page safety cap on first bootstrap run),

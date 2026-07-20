@@ -1,10 +1,22 @@
 """
-guimaras.py — v1.0.0
+guimaras.py — v1.1.0
 
-Scrapes guimaras.gov.ph Governance > Transparency subsections. Each subsection
-is a two-level structure: an index page with an accordion of month links,
-each month link leading to a page holding the real posting table(s).
-Postings are scanned/image PDFs -- no OCR, metadata-only per design.
+Scrapes guimaras.gov.ph Governance > Transparency subsections. Postings are
+scanned/image PDFs -- no OCR, metadata-only per design.
+
+Live survey (2026-07-20) found the six Transparency subsections are NOT a
+uniform template, despite sharing nav placement:
+  - Invitation to Bid: two-level -- an accordion index of month links, each
+    month page holding the real Date/Description/ITB-Number/View table(s).
+  - Bid Supplement: one-level -- a single flat Date/No./Description/Document
+    table with all history on one page (plus legacy 3-column appendix tables
+    further down, which lack a Date column and are skipped by that check).
+  - Invitation to Quote, Negotiated Procurement, Small Value Procurement,
+    Notice of Awards: content is stale (newest year found on each page was
+    2019, 2019, 2020, and 2017/2021 respectively -- verified by full-page
+    year-token count, not just top-of-accordion order). Deferred like
+    PhilGEPS rather than scraped for dead data; revisit if the province
+    resumes posting to them.
 """
 import re
 from datetime import datetime
@@ -15,27 +27,17 @@ from bs4 import BeautifulSoup
 
 BASE_URL = "https://guimaras.gov.ph"
 
-# category label -> subsection index URL. Every one of these follows the same
-# accordion-of-months pattern confirmed live on Invitation to Bid / Notice of
-# Awards; Bid Supplement, Invitation to Quote and the two Request for Price
-# Quotation variants use the same WordPress "cpt" accordion template.
-SUBSECTIONS = {
-    "Invitation to Bid": f"{BASE_URL}/invitation-to-bid/",
-    "Bid Supplement": f"{BASE_URL}/bid-supplement/",
-    "Invitation to Quote": f"{BASE_URL}/invitation-to-quote/",
-    "Negotiated Procurement": f"{BASE_URL}/negotiated-procurement-2/",
-    "Small Value Procurement": f"{BASE_URL}/negotiated-procurement/",
-    "Notice of Awards": f"{BASE_URL}/notice-of-awards/",
-}
+ITB_INDEX_URL = f"{BASE_URL}/invitation-to-bid/"
+BID_SUPPLEMENT_URL = f"{BASE_URL}/bid-supplement/"
 
 USER_AGENT = (
     "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
     "(KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36"
 )
 
-# Each subsection accordion goes back to 2017; walking it in full every 6h
-# would be a large, low-value historical crawl, so only the newest month
-# links are followed per run (first-run bootstrap and steady-state alike).
+# The ITB accordion goes back to 2017; walking it in full every 6h would be a
+# large, low-value historical crawl, so only the newest month links are
+# followed per run (first-run bootstrap and steady-state alike).
 MONTH_PAGE_CAP = 3
 
 MONTH_LOOKUP = {m.lower(): i for i, m in enumerate(
@@ -43,15 +45,15 @@ MONTH_LOOKUP = {m.lower(): i for i, m in enumerate(
      "august", "september", "october", "november", "december"], start=1)}
 
 
-def _parse_month_year_heading(text):
-    """'JULY  2026' -> '2026-07-01' (day unknown at this granularity)."""
+def _parse_month_year_label(text):
+    """'JULY  2026' -> (2026, 7) for sort purposes."""
     m = re.search(r"([A-Za-z]+)\s+(\d{4})", text or "")
     if not m:
         return None
     month = MONTH_LOOKUP.get(m.group(1).strip().lower())
     if not month:
         return None
-    return f"{m.group(2)}-{month:02d}-01"
+    return (int(m.group(2)), month)
 
 
 def _parse_full_date(text):
@@ -65,24 +67,20 @@ def _parse_full_date(text):
     return None
 
 
-def parse_subsection_index(html):
-    """Returns ordered list of (month_label, month_url) newest-first as they
-    appear on the page -- the site lists current year's accordion panel first."""
+def parse_itb_index(html):
+    """Returns (month_label, month_url) tuples sorted newest-first. DOM order
+    isn't trustworthy across every Guimaras subsection (Notice of Awards
+    listed 2017 first), so this sorts explicitly rather than assuming."""
     soup = BeautifulSoup(html, "html.parser")
     links = []
     for panel in soup.select("div.panel.cpt, div.panels.cpt div.panel"):
         for a in panel.find_all("a", href=True):
             label = a.get_text(strip=True)
-            if label:
-                links.append((label, a["href"]))
-    if not links:
-        # Notice of Awards nests panels one level differently; fall back to
-        # any cpt-title anchor on the page.
-        for a in soup.select("a:has(h3.cpt-title)"):
-            label = a.get_text(strip=True)
-            if label and a.get("href"):
-                links.append((label, a["href"]))
-    return links
+            key = _parse_month_year_label(label)
+            if label and key:
+                links.append((key, label, a["href"]))
+    links.sort(key=lambda t: t[0], reverse=True)
+    return [(label, href) for _, label, href in links]
 
 
 def _last_pdf_href(cell):
@@ -93,7 +91,7 @@ def _last_pdf_href(cell):
     return pdf_links[-1] if pdf_links else None
 
 
-def parse_month_page(html, category, month_url):
+def parse_itb_month_page(html, month_url):
     soup = BeautifulSoup(html, "html.parser")
     postings = []
     content = soup.select_one("div.tem-2") or soup
@@ -113,48 +111,57 @@ def parse_month_page(html, category, month_url):
             title = cells[1].get_text(strip=True)
             if not title:
                 continue
-            ref_no = cells[2].get_text(strip=True) or None if len(cells) > 2 else None
-            doc_url = _last_pdf_href(cells[-1]) if cells else None
+            ref_no = cells[2].get_text(strip=True) or None
+            doc_url = _last_pdf_href(cells[-1])
             postings.append(
                 {
                     "source": "guimaras",
                     "title": title,
                     "ref_no": ref_no,
-                    "category": category,
+                    "category": "Invitation to Bid",
                     "date_posted": date_posted,
                     "closing_date": None,
                     "url": month_url,
                     "doc_url": doc_url,
                 }
             )
+    return postings
 
-    if not postings:
-        # Some subsections (e.g. Notice of Awards) are simpler and list a PDF
-        # per row without the DESCRIPTION/ITB-number table -- fall back to
-        # every direct PDF link on the page as a metadata-only posting.
-        heading_text = None
-        h1 = soup.find("h1")
-        if h1:
-            heading_text = h1.get_text(strip=True)
-        date_posted = _parse_month_year_heading(heading_text)
-        for a in soup.select("div.tem-2 a[href]") if soup.select_one("div.tem-2") else soup.select("a[href]"):
-            href = a["href"]
-            if ".pdf" not in href.lower():
+
+def parse_bid_supplement(html):
+    """Single flat page, all history in one table -- no pagination needed.
+    Skips legacy appendix tables further down the page that lack a Date
+    column (same template minus that field, PR-2020-era entries)."""
+    soup = BeautifulSoup(html, "html.parser")
+    postings = []
+    content = soup.select_one("div.tem-2") or soup
+
+    for table in content.select("table"):
+        header_cells = [c.get_text(strip=True).lower() for c in table.select("tr")[0].find_all("td")]
+        if not header_cells or header_cells[0] != "date":
+            continue
+        for row in table.select("tr")[1:]:
+            cells = row.find_all("td")
+            if len(cells) < 4:
                 continue
-            title = a.get_text(strip=True) or href.rsplit("/", 1)[-1]
+            date_posted = _parse_full_date(cells[0].get_text(strip=True))
+            ref_no = cells[1].get_text(strip=True) or None
+            title = cells[2].get_text(strip=True)
+            if not title:
+                continue
+            doc_url = _last_pdf_href(cells[3])
             postings.append(
                 {
                     "source": "guimaras",
                     "title": title,
-                    "ref_no": None,
-                    "category": category,
+                    "ref_no": ref_no,
+                    "category": "Bid Supplement",
                     "date_posted": date_posted,
                     "closing_date": None,
-                    "url": month_url,
-                    "doc_url": href,
+                    "url": BID_SUPPLEMENT_URL,
+                    "doc_url": doc_url,
                 }
             )
-
     return postings
 
 
@@ -163,19 +170,21 @@ def scrape():
     session.headers.update({"User-Agent": USER_AGENT})
     all_postings = []
 
-    for category, index_url in SUBSECTIONS.items():
-        resp = session.get(index_url, timeout=30)
-        resp.raise_for_status()
-        month_links = parse_subsection_index(resp.text)[:MONTH_PAGE_CAP]
+    itb_resp = session.get(ITB_INDEX_URL, timeout=30)
+    itb_resp.raise_for_status()
+    month_links = parse_itb_index(itb_resp.text)[:MONTH_PAGE_CAP]
+    for _, href in month_links:
+        month_url = urljoin(BASE_URL, href)
+        try:
+            mresp = session.get(month_url, timeout=30)
+            mresp.raise_for_status()
+        except requests.RequestException:
+            continue
+        all_postings.extend(parse_itb_month_page(mresp.text, month_url))
 
-        for _, href in month_links:
-            month_url = urljoin(BASE_URL, href)
-            try:
-                mresp = session.get(month_url, timeout=30)
-                mresp.raise_for_status()
-            except requests.RequestException:
-                continue
-            all_postings.extend(parse_month_page(mresp.text, category, month_url))
+    supp_resp = session.get(BID_SUPPLEMENT_URL, timeout=30)
+    supp_resp.raise_for_status()
+    all_postings.extend(parse_bid_supplement(supp_resp.text))
 
     return all_postings
 

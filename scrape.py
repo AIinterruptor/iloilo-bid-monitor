@@ -1,5 +1,5 @@
 """
-scrape.py — v1.0.0
+scrape.py — v1.2.0
 
 Orchestrator: runs all three source scrapers, normalizes, categorizes,
 dedupes against the existing store, and writes back newest-first.
@@ -21,9 +21,25 @@ DATA_PATH = Path(__file__).parent / "docs" / "data" / "postings.json"
 
 
 def _dedupe_key(posting):
-    if posting.get("ref_no"):
+    # Live data breaks the naive "ref_no is unique" assumption: Iloilo City
+    # re-lists the same PR number across multiple publish-date batches when a
+    # bid fails to attract bidders and gets reposted with a new closing date
+    # and a new document -- each is a distinct, currently-open opportunity,
+    # so collapsing them on ref_no alone would silently drop live postings.
+    # doc_url is unique per posting instance for city/guimaras; province
+    # instead uses its canonical node URL (already unique, handles RE-BID).
+    if posting["source"] == "iloilo_province":
+        return (posting["source"], posting["url"])
+    if posting.get("doc_url"):
+        return (posting["source"], posting["doc_url"])
+    # Some City rows have no doc_url (source lists the filename as plain text,
+    # not a link) AND a junk ref_no ("INFRA", "GOODS" -- a mis-scraped category
+    # label, not an actual PR number) shared by dozens of unrelated postings.
+    # title+date_posted is the identifier that actually holds unique in that
+    # case; ref_no alone silently collapsed ~25 distinct INFRA postings into 1.
+    if posting.get("ref_no") and posting["ref_no"].strip().lower() not in ("infra", "goods"):
         return (posting["source"], posting["ref_no"])
-    return (posting["source"], posting["url"])
+    return (posting["source"], posting.get("title"), posting.get("date_posted"), posting["url"])
 
 
 def load_existing():
