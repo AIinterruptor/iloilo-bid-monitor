@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>How to Bid — Iloilo Bid Monitor</title>
+<link rel="icon" href="data:,">
+<style>
+  @font-face {
+    font-family: "Sans";
+    src: local("Segoe UI"), local("Inter"), local("Helvetica Neue");
+  }
+
+  :root {
+    color-scheme: dark;
+    --surface-0:      #0d0d0d;
+    --surface-1:      #17171a;
+    --surface-2:      #1f1f23;
+    --surface-hover:  #26262b;
+    --border:         rgba(255,255,255,0.08);
+    --border-strong:  rgba(255,255,255,0.16);
+    --text-primary:   #f4f4f2;
+    --text-secondary: #b7b6ae;
+    --text-muted:     #7a7a75;
+
+    --accent:         #3987e5;
+    --accent-dim:     rgba(57,135,229,0.14);
+
+    --status-good:      #1fbf4c;
+    --status-good-bg:   rgba(31,191,76,0.14);
+    --status-warning:   #fab219;
+    --status-warning-bg:rgba(250,178,25,0.14);
+    --status-critical:  #e66767;
+    --status-critical-bg:rgba(230,103,103,0.12);
+    --status-neutral:   #7a7a75;
+    --status-neutral-bg:rgba(122,122,117,0.14);
+
+    --font-display: "Segoe UI Semibold", "Segoe UI", "Inter", system-ui, sans-serif;
+    --font-body: "Segoe UI", "Inter", system-ui, sans-serif;
+    --font-mono: "Cascadia Code", "SFMono-Regular", Consolas, monospace;
+  }
+
+  * { box-sizing: border-box; }
+
+  html, body {
+    margin: 0;
+    padding: 0;
+    background: var(--surface-0);
+    color: var(--text-primary);
+    font-family: var(--font-body);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  body {
+    background-image:
+      radial-gradient(circle at 15% 0%, rgba(57,135,229,0.08), transparent 40%),
+      radial-gradient(circle at 85% 0%, rgba(144,133,233,0.06), transparent 40%);
+    background-attachment: fixed;
+    min-height: 100vh;
+  }
+
+  ::selection { background: var(--accent-dim); color: var(--text-primary); }
+  a { color: inherit; }
+
+  header.top {
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    backdrop-filter: blur(10px);
+    background: rgba(13,13,13,0.85);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .top-inner {
+    max-width: 880px;
+    margin: 0 auto;
+    padding: 18px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  .brand { display: flex; align-items: baseline; gap: 12px; }
+
+  .brand .mark {
+    width: 10px;
+    height: 10px;
+    border-radius: 2px;
+    background: var(--accent);
+    box-shadow: 0 0 12px var(--accent);
+    align-self: center;
+  }
+
+  .brand h1 {
+    font-family: var(--font-display);
+    font-size: 19px;
+    font-weight: 700;
+    letter-spacing: 0.01em;
+    margin: 0;
+  }
+
+  .brand .tagline {
+    font-size: 12px;
+    color: var(--text-muted);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    font-weight: 600;
+  }
+
+  nav.top-links { display: flex; gap: 18px; }
+
+  nav.top-links a {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text-secondary);
+    text-decoration: none;
+    padding: 6px 0;
+    border-bottom: 2px solid transparent;
+  }
+
+  nav.top-links a:hover { color: var(--text-primary); }
+  nav.top-links a.active { color: var(--accent); border-bottom-color: var(--accent); }
+
+  main {
+    max-width: 880px;
+    margin: 0 auto;
+    padding: 40px 24px 80px;
+  }
+
+  .disclaimer {
+    background: var(--status-warning-bg);
+    border: 1px solid rgba(250,178,25,0.3);
+    border-radius: 10px;
+    padding: 16px 18px;
+    font-size: 13.5px;
+    line-height: 1.6;
+    color: var(--text-secondary);
+    margin-bottom: 36px;
+  }
+
+  .disclaimer strong { color: var(--status-warning); }
+
+  h2 {
+    font-family: var(--font-display);
+    font-size: 21px;
+    font-weight: 700;
+    letter-spacing: 0.01em;
+    margin: 48px 0 6px;
+    padding-top: 12px;
+    border-top: 1px solid var(--border);
+  }
+
+  h2:first-of-type { margin-top: 0; padding-top: 0; border-top: none; }
+
+  .section-num {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 26px;
+    height: 26px;
+    border-radius: 6px;
+    background: var(--accent-dim);
+    color: var(--accent);
+    font-family: var(--font-mono);
+    font-size: 13px;
+    font-weight: 700;
+    margin-right: 10px;
+    vertical-align: middle;
+  }
+
+  .lede {
+    color: var(--text-secondary);
+    font-size: 14.5px;
+    line-height: 1.7;
+    margin: 0 0 20px;
+  }
+
+  .steps {
+    list-style: none;
+    counter-reset: step;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .steps li {
+    counter-increment: step;
+    background: var(--surface-1);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 14px 16px 14px 48px;
+    position: relative;
+    font-size: 14px;
+    line-height: 1.55;
+    color: var(--text-primary);
+  }
+
+  .steps li::before {
+    content: counter(step);
+    position: absolute;
+    left: 14px;
+    top: 14px;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background: var(--accent-dim);
+    color: var(--accent);
+    font-family: var(--font-mono);
+    font-size: 12px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .steps li .step-label {
+    display: block;
+    font-weight: 700;
+    margin-bottom: 3px;
+  }
+
+  .steps li .step-detail { color: var(--text-secondary); font-size: 13px; }
+
+  .doc-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 10px;
+  }
+
+  .doc-card {
+    background: var(--surface-1);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 14px 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .doc-card .doc-title {
+    font-size: 13.5px;
+    font-weight: 700;
+    color: var(--text-primary);
+  }
+
+  .doc-card .doc-note {
+    font-size: 12.5px;
+    color: var(--text-muted);
+    line-height: 1.5;
+  }
+
+  .doc-card.wide { grid-column: 1 / -1; }
+
+  .tag-row { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 4px; }
+
+  .tag {
+    font-size: 10.5px;
+    font-weight: 700;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    padding: 3px 8px;
+    border-radius: 5px;
+    background: var(--surface-2);
+    color: var(--text-secondary);
+    border: 1px solid var(--border);
+  }
+
+  .tag.required { background: var(--status-good-bg); color: var(--status-good); border-color: transparent; }
+
+  .threshold-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13.5px;
+    background: var(--surface-1);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    overflow: hidden;
+  }
+
+  .threshold-table th, .threshold-table td {
+    text-align: left;
+    padding: 12px 16px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .threshold-table th {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--text-muted);
+    font-weight: 700;
+    background: var(--surface-2);
+  }
+
+  .threshold-table tr:last-child td { border-bottom: none; }
+  .threshold-table td.amt { font-family: var(--font-mono); color: var(--accent); font-weight: 700; }
+
+  .contact-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 12px;
+  }
+
+  .contact-card {
+    background: var(--surface-1);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 16px;
+  }
+
+  .contact-card .loc {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 14px;
+    margin-bottom: 8px;
+  }
+
+  .contact-card .line {
+    font-size: 13px;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    display: flex;
+    gap: 8px;
+    align-items: baseline;
+  }
+
+  .contact-card .line .k { color: var(--text-muted); min-width: 16px; }
+  .contact-card a { color: var(--accent); text-decoration: none; }
+  .contact-card a:hover { text-decoration: underline; }
+
+  .unverified-note {
+    font-size: 11.5px;
+    color: var(--status-warning);
+    margin-top: 8px;
+    line-height: 1.5;
+  }
+
+  .source-links {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .source-links a {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: var(--surface-1);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 12px 16px;
+    text-decoration: none;
+    color: var(--text-primary);
+    font-size: 13.5px;
+    transition: border-color 0.15s, background 0.15s;
+  }
+
+  .source-links a:hover { border-color: var(--accent); background: var(--surface-2); }
+  .source-links a span.arrow { color: var(--accent); font-family: var(--font-mono); }
+
+  footer {
+    max-width: 880px;
+    margin: 0 auto;
+    padding: 20px 24px 40px;
+    color: var(--text-muted);
+    font-size: 12px;
+    text-align: center;
+    border-top: 1px solid var(--border);
+  }
+
+  footer a { color: var(--text-secondary); text-decoration: underline; text-underline-offset: 2px; }
+
+  @media (max-width: 640px) {
+    .top-inner { padding: 14px 16px; }
+    main { padding: 28px 16px 60px; }
+    h2 { font-size: 18px; }
+  }
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="top-inner">
+    <div class="brand">
+      <span class="mark"></span>
+      <div>
+        <h1>ILOILO BID MONITOR</h1>
+        <div class="tagline">Procurement Watch — Iloilo City &middot; Iloilo Province &middot; Guimaras</div>
+      </div>
+    </div>
+    <nav class="top-links">
+      <a href="index.html">Postings</a>
+      <a href="how-to-bid.html" class="active">How to Bid</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <div class="disclaimer">
+    <strong>General guidance, not legal advice.</strong> This page summarizes publicly available requirements under Republic Act No. 12009 (the New Government Procurement Act) and its Implementing Rules and Regulations (IRR), based only on provisions we could directly verify against the official IRR text. It is not exhaustive — project-specific requirements, current peso thresholds, and document checklists vary by procuring entity and project. Always confirm exact requirements with the relevant BAC office before preparing a bid.
+  </div>
+
+  <h2><span class="section-num">1</span>The Bidding Process</h2>
+  <p class="lede">Under RA 12009's Implementing Rules (IRR Section 27.1), Competitive Bidding follows these stages:</p>
+  <ol class="steps">
+    <li><span class="step-label">Publication / Advertisement</span><span class="step-detail">The procuring entity posts the invitation to bid on PhilGEPS and its own website (this is what this dashboard tracks).</span></li>
+    <li><span class="step-label">Pre-bid Conference</span><span class="step-detail">Held at least 12 calendar days before the bid submission deadline. Prospective bidders can raise clarifications here.</span></li>
+    <li><span class="step-label">Eligibility Screening</span><span class="step-detail">The BAC checks submitted legal, technical, and financial documents against requirements.</span></li>
+    <li><span class="step-label">Receipt and Opening of Bids</span><span class="step-detail">Bids are submitted by the deadline and opened publicly.</span></li>
+    <li><span class="step-label">Evaluation of Bids</span><span class="step-detail">The BAC evaluates responsive bids. RA 12009 allows evaluation on Lowest Calculated Responsive Bid (LCRB) or, as a new option introduced by this law, Most Economically Advantageous Responsive Bid (MEARB) — the procuring entity specifies which basis applies per project.</span></li>
+    <li><span class="step-label">Post-Qualification</span><span class="step-detail">The lowest/highest-ranked bidder's documents are verified in full before award.</span></li>
+    <li><span class="step-label">Award of Contract</span><span class="step-detail">The contract is awarded to the bidder who passes post-qualification.</span></li>
+  </ol>
+
+  <h2><span class="section-num">2</span>PhilGEPS Registration</h2>
+  <p class="lede">PhilGEPS registration is mandatory — IRR Section 20.3.1 requires all procuring entities to conduct procurement through PhilGEPS, and bidders must hold a <strong>PhilGEPS Certificate of Registration (Platinum Membership)</strong> to participate. Membership is valid for one year and must be kept current annually.</p>
+  <p class="lede">Documents required for Platinum Membership (IRR Section 20.2.9.1):</p>
+  <div class="doc-grid">
+    <div class="doc-card"><span class="doc-title">SEC / DTI / CDA Registration</span><span class="doc-note">SEC for corporations/partnerships, DTI for sole proprietorships, CDA for cooperatives.</span></div>
+    <div class="doc-card"><span class="doc-title">General Information Sheet (GIS)</span><span class="doc-note">Updated, reflecting beneficial ownership information, filed with SEC. Required since July 2025.</span></div>
+    <div class="doc-card"><span class="doc-title">Mayor's / Business Permit</span><span class="doc-note">Current and valid.</span></div>
+    <div class="doc-card"><span class="doc-title">BIR Tax Clearance</span><span class="doc-note">Finally reviewed and approved by BIR.</span></div>
+    <div class="doc-card"><span class="doc-title">PCAB License and Registration</span><span class="doc-note">For contractors bidding on infrastructure/construction projects.</span></div>
+    <div class="doc-card"><span class="doc-title">Audited Financial Statements</span><span class="doc-note">Stamped "Received" by BIR or an accredited institution.</span></div>
+  </div>
+  <p class="unverified-note">Foreign bidders: documents must be in English, or accompanied by a certified translation, and authenticated via a Philippine foreign service post or apostille (IRR Section 20.2.9.2).</p>
+
+  <h2><span class="section-num">3</span>Small Value Procurement</h2>
+  <p class="lede">Not every purchase goes through full competitive bidding. RA 12009 made Small Value Procurement (SVP) its own standalone mode:</p>
+  <table class="threshold-table">
+    <thead><tr><th>Mode</th><th>Threshold</th><th>Requirement</th></tr></thead>
+    <tbody>
+      <tr><td>Small Value Procurement</td><td class="amt">Up to ₱2,000,000</td><td>At least 3 price quotations; if the amount does not exceed ₱2,000,000, one quotation is sufficient to proceed with evaluation.</td></tr>
+      <tr><td>Competitive Bidding</td><td class="amt">Above ₱2,000,000</td><td>Full process per Section 1 above.</td></tr>
+    </tbody>
+  </table>
+  <p class="unverified-note">Some LGUs and barangays apply lower, income-class-tiered SVP thresholds for their own procurement. We could not confirm exact figures against the IRR — check with the specific BAC office for project-level thresholds.</p>
+
+  <h2><span class="section-num">4</span>Official Sources</h2>
+  <p class="lede">This page summarizes only what we could directly verify. For the full, authoritative text — including detailed procedures, financial capacity requirements, and annexes not covered here — go to the source:</p>
+  <div class="source-links">
+    <a href="https://www.gppb.gov.ph/wp-content/uploads/2025/02/Implementing-Rules-and-Regulations-of-RA-12009.pdf" target="_blank" rel="noopener">Official IRR of RA 12009 (GPPB, PDF) <span class="arrow">&rarr;</span></a>
+    <a href="https://www.gppb.gov.ph/new-government-procurement-act-or-republic-act-no-12009/" target="_blank" rel="noopener">GPPB — New Government Procurement Act overview <span class="arrow">&rarr;</span></a>
+    <a href="https://www.gppb.gov.ph/resolutions/" target="_blank" rel="noopener">GPPB Resolutions — check for updates/amendments <span class="arrow">&rarr;</span></a>
+    <a href="https://philgeps.gov.ph" target="_blank" rel="noopener">PhilGEPS — registration &amp; opportunity search <span class="arrow">&rarr;</span></a>
+  </div>
+
+  <h2><span class="section-num">5</span>BAC Contacts</h2>
+  <p class="lede">For project-specific requirements, eligibility questions, or to submit a bid, contact the relevant BAC office directly.</p>
+  <div class="contact-grid">
+    <div class="contact-card">
+      <div class="loc">Iloilo City</div>
+      <div class="line"><span class="k">&#128231;</span><a href="mailto:bac.iloilocity@gmail.com">bac.iloilocity@gmail.com</a></div>
+      <div class="line"><span class="k">&#9742;</span>(033) 333-1111 loc. 730</div>
+      <div class="line"><span class="k">&#128205;</span>7th Flr., Iloilo City Hall, Plaza Libertad, Iloilo City</div>
+      <div class="unverified-note">Contact details corroborated via public search, not directly verified on iloilocity.gov.ph (site restricts automated access). Please confirm before relying on them.</div>
+    </div>
+    <div class="contact-card">
+      <div class="loc">Iloilo Province</div>
+      <div class="line"><span class="k">&#128231;</span><a href="mailto:bac@iloilo.gov.ph">bac@iloilo.gov.ph</a></div>
+      <div class="line"><span class="k">&#128205;</span>5F Right Wing, Iloilo Provincial Capitol, Bonifacio Drive, Iloilo City</div>
+      <div class="line"><span class="k">&#128337;</span>8:00 AM–5:00 PM, Mon–Fri</div>
+    </div>
+    <div class="contact-card">
+      <div class="loc">Guimaras Province</div>
+      <div class="line"><span class="k">&#128231;</span><a href="mailto:bac_guimaras2015@yahoo.com">bac_guimaras2015@yahoo.com</a></div>
+      <div class="line"><span class="k">&#128205;</span>BAC Office, PEO Building, Provincial Capitol, San Miguel, Jordan, Guimaras</div>
+    </div>
+  </div>
+
+</main>
+
+<footer>
+  Data refreshed every 6 hours via GitHub Actions &middot;
+  <a href="https://github.com/AIinterruptor/iloilo-bid-monitor" target="_blank" rel="noopener">Source on GitHub</a>
+</footer>
+
+</body>
+</html>
