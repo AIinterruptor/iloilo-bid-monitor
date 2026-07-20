@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Iloilo Bid Monitor</title>
+<link rel="icon" href="data:,">
+<style>
+  @font-face {
+    font-family: "Sans";
+    src: local("Segoe UI"), local("Inter"), local("Helvetica Neue");
+  }
+
+  :root {
+    color-scheme: dark;
+    --surface-0:      #0d0d0d;
+    --surface-1:      #17171a;
+    --surface-2:      #1f1f23;
+    --surface-hover:  #26262b;
+    --border:         rgba(255,255,255,0.08);
+    --border-strong:  rgba(255,255,255,0.16);
+    --text-primary:   #f4f4f2;
+    --text-secondary: #b7b6ae;
+    --text-muted:     #7a7a75;
+
+    --accent:         #3987e5;
+    --accent-dim:     rgba(57,135,229,0.14);
+
+    --status-good:      #1fbf4c;
+    --status-good-bg:   rgba(31,191,76,0.14);
+    --status-warning:   #fab219;
+    --status-warning-bg:rgba(250,178,25,0.14);
+    --status-critical:  #e66767;
+    --status-critical-bg:rgba(230,103,103,0.12);
+    --status-neutral:   #7a7a75;
+    --status-neutral-bg:rgba(122,122,117,0.14);
+
+    --cat-construction: #3987e5;
+    --cat-goods:        #d95926;
+    --cat-it:           #9085e9;
+    --cat-consulting:   #c98500;
+    --cat-other:        #7a7a75;
+
+    --font-display: "Segoe UI Semibold", "Segoe UI", "Inter", system-ui, sans-serif;
+    --font-body: "Segoe UI", "Inter", system-ui, sans-serif;
+    --font-mono: "Cascadia Code", "SFMono-Regular", Consolas, monospace;
+  }
+
+  * { box-sizing: border-box; }
+
+  html, body {
+    margin: 0;
+    padding: 0;
+    background: var(--surface-0);
+    color: var(--text-primary);
+    font-family: var(--font-body);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  body {
+    background-image:
+      radial-gradient(circle at 15% 0%, rgba(57,135,229,0.08), transparent 40%),
+      radial-gradient(circle at 85% 0%, rgba(144,133,233,0.06), transparent 40%);
+    background-attachment: fixed;
+    min-height: 100vh;
+  }
+
+  ::selection { background: var(--accent-dim); color: var(--text-primary); }
+
+  a { color: inherit; }
+
+  /* ---------- Header ---------- */
+
+  header.top {
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    backdrop-filter: blur(10px);
+    background: rgba(13,13,13,0.85);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .top-inner {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 18px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  .brand {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+  }
+
+  .brand .mark {
+    width: 10px;
+    height: 10px;
+    border-radius: 2px;
+    background: var(--accent);
+    box-shadow: 0 0 12px var(--accent);
+    align-self: center;
+  }
+
+  .brand h1 {
+    font-family: var(--font-display);
+    font-size: 19px;
+    font-weight: 700;
+    letter-spacing: 0.01em;
+    margin: 0;
+  }
+
+  .brand .tagline {
+    font-size: 12px;
+    color: var(--text-muted);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    font-weight: 600;
+  }
+
+  .stat-row {
+    display: flex;
+    gap: 24px;
+    font-family: var(--font-mono);
+  }
+
+  .stat {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+  }
+
+  .stat .n {
+    font-size: 20px;
+    font-weight: 700;
+    font-variant-numeric: tabular-nums;
+    line-height: 1.1;
+  }
+
+  .stat .l {
+    font-size: 10px;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-top: 2px;
+  }
+
+  .stat.new .n { color: var(--status-good); }
+  .stat.closing .n { color: var(--status-warning); }
+
+  /* ---------- Controls ---------- */
+
+  .controls {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 20px 24px 0;
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+
+  .search-wrap {
+    position: relative;
+    flex: 1 1 260px;
+    min-width: 200px;
+  }
+
+  .search-wrap svg {
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    opacity: 0.5;
+    pointer-events: none;
+  }
+
+  #search {
+    width: 100%;
+    background: var(--surface-1);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 10px 12px 10px 36px;
+    color: var(--text-primary);
+    font-size: 14px;
+    font-family: var(--font-body);
+    outline: none;
+    transition: border-color 0.15s;
+  }
+
+  #search:focus { border-color: var(--accent); }
+  #search::placeholder { color: var(--text-muted); }
+
+  select {
+    background: var(--surface-1);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 10px 32px 10px 12px;
+    color: var(--text-primary);
+    font-size: 13px;
+    font-family: var(--font-body);
+    outline: none;
+    cursor: pointer;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%237a7a75'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+  }
+
+  select:focus { border-color: var(--accent); }
+
+  .count-badge {
+    margin-left: auto;
+    font-size: 12px;
+    color: var(--text-muted);
+    font-family: var(--font-mono);
+    white-space: nowrap;
+  }
+
+  /* ---------- Feed ---------- */
+
+  main {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 20px 24px 60px;
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 12px;
+  }
+
+  .card {
+    background: var(--surface-1);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    transition: border-color 0.15s, transform 0.15s, background 0.15s;
+  }
+
+  .card:hover {
+    border-color: var(--border-strong);
+    background: var(--surface-2);
+  }
+
+  .card-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .badges {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+  }
+
+  .badge {
+    font-size: 10.5px;
+    font-weight: 700;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    padding: 3px 8px;
+    border-radius: 5px;
+    white-space: nowrap;
+    line-height: 1.5;
+  }
+
+  .badge.source {
+    background: var(--surface-2);
+    color: var(--text-secondary);
+    border: 1px solid var(--border);
+  }
+
+  .badge.cat-construction { background: rgba(57,135,229,0.16); color: #7bb2f0; }
+  .badge.cat-goods        { background: rgba(217,89,38,0.18); color: #f0925f; }
+  .badge.cat-it           { background: rgba(144,133,233,0.18); color: #b3aaf3; }
+  .badge.cat-consulting   { background: rgba(201,133,0,0.18); color: #f0b23d; }
+  .badge.cat-other        { background: rgba(122,122,117,0.18); color: #a8a7a1; }
+
+  .status-pill {
+    font-size: 10.5px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    padding: 3px 9px;
+    border-radius: 999px;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    white-space: nowrap;
+  }
+
+  .status-pill::before {
+    content: "";
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: currentColor;
+  }
+
+  .status-pill.new      { background: var(--status-good-bg); color: var(--status-good); }
+  .status-pill.closing  { background: var(--status-warning-bg); color: var(--status-warning); }
+  .status-pill.closed   { background: var(--status-critical-bg); color: var(--status-critical); }
+  .status-pill.normal   { background: var(--status-neutral-bg); color: var(--status-neutral); }
+
+  .card-title {
+    font-size: 14.5px;
+    font-weight: 600;
+    line-height: 1.4;
+    color: var(--text-primary);
+    margin: 0;
+  }
+
+  .card-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px 14px;
+    font-size: 12px;
+    color: var(--text-muted);
+    font-family: var(--font-mono);
+  }
+
+  .card-meta .ref { color: var(--text-secondary); }
+
+  .card-dates {
+    display: flex;
+    gap: 16px;
+    font-size: 12px;
+    color: var(--text-secondary);
+  }
+
+  .card-dates .label {
+    color: var(--text-muted);
+    margin-right: 4px;
+  }
+
+  .card-links {
+    display: flex;
+    gap: 8px;
+    margin-top: auto;
+    padding-top: 8px;
+    border-top: 1px solid var(--border);
+  }
+
+  .card-links a {
+    flex: 1;
+    text-align: center;
+    font-size: 12px;
+    font-weight: 600;
+    padding: 7px 0;
+    border-radius: 6px;
+    text-decoration: none;
+    background: var(--surface-2);
+    color: var(--text-secondary);
+    border: 1px solid var(--border);
+    transition: background 0.15s, color 0.15s, border-color 0.15s;
+  }
+
+  .card-links a:hover {
+    background: var(--accent-dim);
+    color: var(--accent);
+    border-color: var(--accent);
+  }
+
+  .card-links a.primary {
+    background: var(--accent-dim);
+    color: var(--accent);
+    border-color: rgba(57,135,229,0.3);
+  }
+
+  /* ---------- Empty state ---------- */
+
+  .empty {
+    text-align: center;
+    padding: 80px 20px;
+    color: var(--text-muted);
+  }
+
+  .empty .big {
+    font-size: 15px;
+    color: var(--text-secondary);
+    margin-bottom: 6px;
+  }
+
+  footer {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 20px 24px 40px;
+    color: var(--text-muted);
+    font-size: 12px;
+    text-align: center;
+    border-top: 1px solid var(--border);
+  }
+
+  footer a { color: var(--text-secondary); text-decoration: underline; text-underline-offset: 2px; }
+
+  @media (max-width: 640px) {
+    .top-inner { padding: 14px 16px; }
+    .stat-row { gap: 16px; }
+    .controls { padding: 16px 16px 0; }
+    main { padding: 16px 16px 40px; }
+    .grid { grid-template-columns: 1fr; }
+    .count-badge { width: 100%; margin-left: 0; order: 10; }
+  }
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="top-inner">
+    <div class="brand">
+      <span class="mark"></span>
+      <div>
+        <h1>ILOILO BID MONITOR</h1>
+        <div class="tagline">Procurement Watch — Iloilo City &middot; Iloilo Province &middot; Guimaras</div>
+      </div>
+    </div>
+    <div class="stat-row">
+      <div class="stat"><span class="n" id="stat-total">–</span><span class="l">Total</span></div>
+      <div class="stat new"><span class="n" id="stat-new">–</span><span class="l">New</span></div>
+      <div class="stat closing"><span class="n" id="stat-closing">–</span><span class="l">Closing Soon</span></div>
+    </div>
+  </div>
+</header>
+
+<div class="controls">
+  <div class="search-wrap">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.35-4.35"/></svg>
+    <input id="search" type="text" placeholder="Search postings by title or reference no...">
+  </div>
+  <select id="filter-source">
+    <option value="">All Sources</option>
+    <option value="iloilo_city">Iloilo City</option>
+    <option value="iloilo_province">Iloilo Province</option>
+    <option value="guimaras">Guimaras</option>
+  </select>
+  <select id="filter-category">
+    <option value="">All Categories</option>
+    <option value="Construction/Infrastructure">Construction/Infrastructure</option>
+    <option value="Goods & Supplies">Goods &amp; Supplies</option>
+    <option value="IT/Technology">IT/Technology</option>
+    <option value="Consulting/Professional Services">Consulting/Professional Services</option>
+    <option value="Other">Other</option>
+  </select>
+  <select id="filter-status">
+    <option value="">All Statuses</option>
+    <option value="new">New</option>
+    <option value="closing">Closing Soon</option>
+    <option value="normal">Normal</option>
+    <option value="closed">Closed</option>
+  </select>
+  <select id="sort-order">
+    <option value="date_desc">Newest First</option>
+    <option value="date_asc">Oldest First</option>
+    <option value="closing_asc">Closing Soonest</option>
+  </select>
+  <div class="count-badge" id="result-count"></div>
+</div>
+
+<main>
+  <div class="grid" id="grid"></div>
+  <div class="empty" id="empty" style="display:none;">
+    <div class="big">No postings match these filters</div>
+    <div>Try clearing the search or switching category/source.</div>
+  </div>
+</main>
+
+<footer>
+  Data refreshed every 6 hours via GitHub Actions &middot;
+  <a href="https://github.com/AIinterruptor/iloilo-bid-monitor" target="_blank" rel="noopener">Source on GitHub</a>
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>
