@@ -1,13 +1,18 @@
 """
-iloilo_city.py — v1.1.0
+iloilo_city.py — v1.2.0
 
 Scrapes https://iloilocity.gov.ph/bids-and-awards-committee/ (WordPress site).
 
 The host is fronted by Cloudflare, whose WAF returns 403 to GitHub Actions
 datacenter IPs (confirmed persistent, every scheduled run since 2026-07-20).
-When BID_PROXY_BASE is set, the request is routed through that proxy's
-`/proxy?url=` endpoint so the fetch originates from a non-blocked IP; unset,
-it fetches directly (works from residential IPs / local runs).
+Cloudflare-edge proxies (e.g. Workers) are blocked the same way, but Google
+Cloud egress is NOT (verified 2026-07-21) — so CI routes through a small
+token-authed fetch relay (`bid-proxy.service`) on a GCP VM.
+
+When BID_PROXY_BASE is set, the request goes through that relay's
+`/proxy?url=` endpoint so the fetch originates from a non-blocked IP;
+BID_PROXY_TOKEN, if set, is sent as the relay's X-Bid-Proxy-Token shared
+secret. Unset, it fetches directly (works from residential IPs / local runs).
 """
 import os
 import re
@@ -19,9 +24,11 @@ from bs4 import BeautifulSoup
 
 URL = "https://iloilocity.gov.ph/bids-and-awards-committee/"
 
-# Optional fetch proxy (Cloudflare Worker with a `/proxy?url=` passthrough).
-# e.g. BID_PROXY_BASE="https://jdm-proxy.josed-jdm.workers.dev"
+# Optional fetch relay with a `/proxy?url=` passthrough (bid-proxy.service on
+# a GCP VM — must NOT be Cloudflare-edge, which the WAF blocks like CI IPs).
+# e.g. BID_PROXY_BASE="http://<vm-ip>:8080"
 PROXY_BASE = (os.environ.get("BID_PROXY_BASE") or "").rstrip("/")
+PROXY_TOKEN = os.environ.get("BID_PROXY_TOKEN") or ""
 
 # robots.txt on this host disallows AI-crawler UAs specifically; a generic
 # desktop-browser UA polling every 6h is the low-impact equivalent of a human
@@ -79,11 +86,14 @@ def parse(html):
 
 
 def scrape():
+    headers = {"User-Agent": USER_AGENT}
     if PROXY_BASE:
         fetch_url = f"{PROXY_BASE}/proxy?url=" + urllib.parse.quote(URL, safe="")
+        if PROXY_TOKEN:
+            headers["X-Bid-Proxy-Token"] = PROXY_TOKEN
     else:
         fetch_url = URL
-    resp = requests.get(fetch_url, headers={"User-Agent": USER_AGENT}, timeout=30)
+    resp = requests.get(fetch_url, headers=headers, timeout=45)
     resp.raise_for_status()
     return parse(resp.text)
 
