@@ -1,5 +1,5 @@
 """
-scrape.py — v1.2.0
+scrape.py — v1.3.0
 
 Orchestrator: runs all three source scrapers, normalizes, categorizes,
 dedupes against the existing store, and writes back newest-first.
@@ -7,9 +7,15 @@ dedupes against the existing store, and writes back newest-first.
 Output lives under docs/ (not the repo root) because GitHub Pages, configured
 to serve from docs/, cannot reach a file outside that folder -- the dashboard
 fetches this same path client-side as a relative URL.
+
+Each source is isolated: one scraper raising (site down, 403, timeout) must not
+sink the other two. Per-source failures are logged loudly and surfaced in the
+stats. The run exits nonzero only if EVERY source failed -- a monitor that
+half-works is still worth a green build and a committed partial update.
 """
 import json
 import sys
+import traceback
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent))
@@ -55,10 +61,27 @@ def run():
     # province scraper needs prior node URLs to know where to stop paginating
     existing_province_urls = {p["url"] for p in existing if p["source"] == "iloilo_province"}
 
+    sources = [
+        ("iloilo_city", lambda: iloilo_city.scrape()),
+        ("iloilo_province", lambda: iloilo_province.scrape(seen_urls=existing_province_urls)),
+        ("guimaras", lambda: guimaras.scrape()),
+    ]
+
     fresh = []
-    fresh.extend(iloilo_city.scrape())
-    fresh.extend(iloilo_province.scrape(seen_urls=existing_province_urls))
-    fresh.extend(guimaras.scrape())
+    errors = {}
+    for name, fn in sources:
+        try:
+            fresh.extend(fn())
+        except Exception as exc:  # noqa: BLE001 -- isolate each source
+            errors[name] = f"{type(exc).__name__}: {exc}"
+            print(f"[scrape] SOURCE FAILED: {name}: {errors[name]}", file=sys.stderr)
+            traceback.print_exc()
+
+    if len(errors) == len(sources):
+        # Every source is down -- nothing scraped, nothing to write. Fail loud
+        # so the scheduled build goes red and the failure is not swallowed.
+        print("[scrape] ALL SOURCES FAILED -- aborting.", file=sys.stderr)
+        raise SystemExit(1)
 
     apply_categories(fresh)
 
@@ -84,6 +107,7 @@ def run():
         "guimaras": sum(1 for p in fresh if p["source"] == "guimaras"),
         "new_postings": new_count,
         "total_postings": len(existing),
+        "failed_sources": errors,
     }
 
 

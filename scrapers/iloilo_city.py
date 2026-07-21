@@ -1,15 +1,27 @@
 """
-iloilo_city.py — v1.0.0
+iloilo_city.py — v1.1.0
 
 Scrapes https://iloilocity.gov.ph/bids-and-awards-committee/ (WordPress site).
+
+The host is fronted by Cloudflare, whose WAF returns 403 to GitHub Actions
+datacenter IPs (confirmed persistent, every scheduled run since 2026-07-20).
+When BID_PROXY_BASE is set, the request is routed through that proxy's
+`/proxy?url=` endpoint so the fetch originates from a non-blocked IP; unset,
+it fetches directly (works from residential IPs / local runs).
 """
+import os
 import re
+import urllib.parse
 from datetime import datetime
 
 import requests
 from bs4 import BeautifulSoup
 
 URL = "https://iloilocity.gov.ph/bids-and-awards-committee/"
+
+# Optional fetch proxy (Cloudflare Worker with a `/proxy?url=` passthrough).
+# e.g. BID_PROXY_BASE="https://jdm-proxy.josed-jdm.workers.dev"
+PROXY_BASE = (os.environ.get("BID_PROXY_BASE") or "").rstrip("/")
 
 # robots.txt on this host disallows AI-crawler UAs specifically; a generic
 # desktop-browser UA polling every 6h is the low-impact equivalent of a human
@@ -67,7 +79,11 @@ def parse(html):
 
 
 def scrape():
-    resp = requests.get(URL, headers={"User-Agent": USER_AGENT}, timeout=30)
+    if PROXY_BASE:
+        fetch_url = f"{PROXY_BASE}/proxy?url=" + urllib.parse.quote(URL, safe="")
+    else:
+        fetch_url = URL
+    resp = requests.get(fetch_url, headers={"User-Agent": USER_AGENT}, timeout=30)
     resp.raise_for_status()
     return parse(resp.text)
 
