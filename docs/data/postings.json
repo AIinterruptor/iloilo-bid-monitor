@@ -1,6 +1,105 @@
 [
   {
     "source": "iloilo_province",
+    "title": "SPO-26-960-SVP Food Catering",
+    "ref_no": "SPO-26-960-S",
+    "category": "Bids and Awards / Request for Quotation (RFQ)",
+    "date_posted": "2026-07-22",
+    "closing_date": null,
+    "url": "https://iloilo.gov.ph/en/node/16262",
+    "doc_url": "https://drive.google.com/file/d/1bpNKo7kQkqR3_6l4QvJmV2tkGgnKQvWK/view?usp=sharing",
+    "category_tag": "Goods & Supplies"
+  },
+  {
+    "source": "iloilo_province",
+    "title": "PEO-26-513-B PCSC GASLINE CENTER (NTP & P.O.)",
+    "ref_no": "PEO-26-513-B",
+    "category": "Bids and Awards / Notice to Proceed",
+    "date_posted": "2026-07-22",
+    "closing_date": null,
+    "url": "https://iloilo.gov.ph/en/node/16261",
+    "doc_url": "https://drive.google.com/drive/folders/1c5VmGg-VWnye1IAjh2CTRu7b8KSvofXe?usp=drive_link",
+    "category_tag": "Other"
+  },
+  {
+    "source": "iloilo_province",
+    "title": "PEO-26-513-B PCSC GASLINE CENTER (NOA & RESO LCRB)",
+    "ref_no": "PEO-26-513-B",
+    "category": "Resolutions / Bids and Awards / Notice of Awards",
+    "date_posted": "2026-07-22",
+    "closing_date": null,
+    "url": "https://iloilo.gov.ph/en/node/16260",
+    "doc_url": "https://drive.google.com/drive/folders/1XKkBKN0mLgXhnK5CxuQjVe5jXRevH__H?usp=drive_link",
+    "category_tag": "Other"
+  },
+  {
+    "source": "iloilo_province",
+    "title": "PEO-26-295-B EDDIE-C TRADERS (NTP & P.O.)",
+    "ref_no": "PEO-26-295-B",
+    "category": "Bids and Awards / Notice to Proceed",
+    "date_posted": "2026-07-22",
+    "closing_date": null,
+    "url": "https://iloilo.gov.ph/en/node/16259",
+    "doc_url": "https://drive.google.com/drive/folders/1N57vAr4CB831pC9Na4h00a5kJfLSO_Ya?usp=drive_link",
+    "category_tag": "Other"
+  },
+  {
+    "source": "iloilo_province",
+    "title": "PEO-26-295-B EDDIE-C TRADERS (NOA & RESO LCRB)",
+    "ref_no": "PEO-26-295-B",
+    "category": "Resolutions / Bids and Awards / Notice of Awards",
+    "date_posted": "2026-07-22",
+    "closing_date": null,
+    "url": "https://iloilo.gov.ph/en/node/16258",
+    "doc_url": "https://drive.google.com/drive/folders/1Ed_2GZy8oiubCEqv_1dhofxAHN1IwgjC?usp=drive_link",
+    "category_tag": "Other"
+  },
+  {
+    "source": "iloilo_province",
+    "title": "PEO-26-543-B CRO-MAGNON CORPORATION (NTP & P.O.)",
+    "ref_no": "PEO-26-543-B",
+    "category": "Bids and Awards / Notice to Proceed",
+    "date_posted": "2026-07-22",
+    "closing_date": null,
+    "url": "https://iloilo.gov.ph/en/node/16257",
+    "doc_url": "https://drive.google.com/drive/folders/1PWm2eOvANkBqEiWjN2ksugaYDAhQCuep?usp=drive_link",
+    "category_tag": "Other"
+  },
+  {
+    "source": "iloilo_province",
+    "title": "PEO-26-543-B CRO-MAGNON CORPORATION (NOA & RESO LCRB)",
+    "ref_no": "PEO-26-543-B",
+    "category": "Resolutions / Bids and Awards / Notice of Awards",
+    "date_posted": "2026-07-22",
+    "closing_date": null,
+    "url": "https://iloilo.gov.ph/en/node/16256",
+    "doc_url": "https://drive.google.com/drive/folders/15epllqKiLcGzDcYSMf8q9nrjiaHh6RxD?usp=drive_link",
+    "category_tag": "Other"
+  },
+  {
+    "source": "iloilo_province",
+    "title": "PEO-26-288-B CONQUEST CONSTRUCTION SUPPLY & PARTS (NTP & P.O.)",
+    "ref_no": "PEO-26-288-B",
+    "category": "Bids and Awards / Notice to Proceed",
+    "date_posted": "2026-07-22",
+    "closing_date": null,
+    "url": "https://iloilo.gov.ph/en/node/16253",
+    "doc_url": "https://drive.google.com/drive/folders/1C0U6E6XGlF-W-QzKtzl6SfUCZ_deNUQ3?usp=drive_link",
+    "category_tag": "Construction/Infrastructure"
+  },
+  {
+    "source": "iloilo_province",
+    "title": "PEO-26-288-B CONQUEST CONSTRUCTION SUPPLY & PARTS (NOA & RESO LCRB)",
+    "ref_no": "PEO-26-288-B",
+    "category": "Resolutions / Bids and Awards / Notice of Awards",
+    "date_posted": "2026-07-22",
+    "closing_date": null,
+    "url": "https://iloilo.gov.ph/en/node/16252",
+    "doc_url": "https://drive.google.com/drive/folders/1_q207p_PoHkTlNb_6dV_inRUJWqLKfCW?usp=drive_link",
+    "category_tag": "Construction/Infrastructure"
+  },
+  {
+    "source": "iloilo_province",
     "title": "SJH-26-796-SVP MEDICAL OXYGEN",
     "ref_no": "SJH-26-796-S",
     "category": "Bids and Awards / Request for Quotation (RFQ)",
@@ -404,6 +503,50 @@
     "closing_date": null,
     "url": "https://iloilo.gov.ph/index.php/en/node/16247",
     "doc_url": "https://drive.google.com/drive/folders/1BGhhv6GEFEvkw4vtkVBy-59MUHyWKDrz?usp=sharing",
+    "category_tag": "Other"
+  },
+  {
+    "source": "iloilo_province",
+    "title": "PEO-26-816-B Purchase of Diesel Fuel",
+    "ref_no": "PEO-26-816-B",
+    "category": "Bids and Awards / Bid Tender / Invitation To Bid",
+    "date_posted": "2026-07-21",
+    "closing_date": null,
+    "url": "https://iloilo.gov.ph/en/node/16246",
+    "doc_url": "https://drive.google.com/drive/folders/1HKtBUk3XdqL3CK0zWVstOdl9BYsuRPHQ?usp=sharing",
+    "category_tag": "Goods & Supplies"
+  },
+  {
+    "source": "iloilo_province",
+    "title": "PEO-26-888-B Purchase of Construction Materials",
+    "ref_no": "PEO-26-888-B",
+    "category": "Bids and Awards / Bid Tender / Invitation To Bid",
+    "date_posted": "2026-07-21",
+    "closing_date": null,
+    "url": "https://iloilo.gov.ph/en/node/16245",
+    "doc_url": "https://drive.google.com/drive/folders/1lyLuuQoyGJPjEByNSyiPOyk_26nk5QsW?usp=sharing",
+    "category_tag": "Construction/Infrastructure"
+  },
+  {
+    "source": "iloilo_province",
+    "title": "PSW-26-878-B PASSENGER VAN",
+    "ref_no": "PSW-26-878-B",
+    "category": "Bids and Awards / Bid Bulletin",
+    "date_posted": "2026-07-21",
+    "closing_date": null,
+    "url": "https://iloilo.gov.ph/en/node/16244",
+    "doc_url": "https://drive.google.com/drive/folders/1mxHt7gAQ2UjxAnDwyVQlHxOqp-6nWMmM?usp=sharing",
+    "category_tag": "Other"
+  },
+  {
+    "source": "iloilo_province",
+    "title": "BID BULLETIN NO. 1 AGR-26-589-B (rebid 2)",
+    "ref_no": "AGR-26-589-B",
+    "category": "Bids and Awards / Bid Bulletin",
+    "date_posted": "2026-07-21",
+    "closing_date": null,
+    "url": "https://iloilo.gov.ph/en/node/16243",
+    "doc_url": "https://drive.google.com/file/d/1KmAo4r-4y42I-q3pq5uXrpS0hNc6W0Io/view?usp=drive_link",
     "category_tag": "Other"
   },
   {
