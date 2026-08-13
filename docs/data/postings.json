@@ -1,5 +1,93 @@
 [
   {
+    "source": "guimaras",
+    "title": "INVITATION TO BID FOR SUPPLY AND DELIVERY OF GROUND PENETRATING RADAR",
+    "ref_no": "2026-06-282",
+    "category": "Invitation to Bid",
+    "date_posted": "2026-09-01",
+    "closing_date": null,
+    "url": "https://guimaras.gov.ph/invitation-to-bid/april-2025-2-2-2-2-2-2-2-2-2-2-2-3-2-2-2-2/",
+    "doc_url": "https://guimaras.gov.ph/wp-content/uploads/2026/08/2026-08-282.pdf",
+    "category_tag": "Goods & Supplies"
+  },
+  {
+    "source": "guimaras",
+    "title": "INVITATION TO BID FOR SUPPLY AND DELIVERY OF RESCUE TRUCK WITH BOOM",
+    "ref_no": "2026-08-283",
+    "category": "Invitation to Bid",
+    "date_posted": "2026-09-01",
+    "closing_date": null,
+    "url": "https://guimaras.gov.ph/invitation-to-bid/april-2025-2-2-2-2-2-2-2-2-2-2-2-3-2-2-2-2/",
+    "doc_url": "https://guimaras.gov.ph/wp-content/uploads/2026/08/2026-08-283.pdf",
+    "category_tag": "Goods & Supplies"
+  },
+  {
+    "source": "guimaras",
+    "title": "INVITATION TO BID FOR ONE JOB SUPPLY OF MATERIALS AND LABOR FOR THE CONSTRUCTION OF PORTS & WHARVES AT KUPO WHARF, BRGY. SAN ISIDRO, SIBUNAG, GUIMARAS WITH THE TECHNICAL PERSONNEL AND EQUIPMENT REQUIRED",
+    "ref_no": "2026-08-284",
+    "category": "Invitation to Bid",
+    "date_posted": "2026-09-01",
+    "closing_date": null,
+    "url": "https://guimaras.gov.ph/invitation-to-bid/april-2025-2-2-2-2-2-2-2-2-2-2-2-3-2-2-2-2/",
+    "doc_url": "https://guimaras.gov.ph/wp-content/uploads/2026/08/2026-08-284.pdf",
+    "category_tag": "Construction/Infrastructure"
+  },
+  {
+    "source": "guimaras",
+    "title": "INVITATION TO BID FOR PROCUREMENT OF VARIOUS PROFESSIONAL SERVICES",
+    "ref_no": "2026-06-222",
+    "category": "Invitation to Bid",
+    "date_posted": "2026-08-19",
+    "closing_date": null,
+    "url": "https://guimaras.gov.ph/invitation-to-bid/april-2025-2-2-2-2-2-2-2-2-2-2-2-3-2-2-2/",
+    "doc_url": "https://guimaras.gov.ph/wp-content/uploads/2026/08/2026-06-222-Rebid.pdf",
+    "category_tag": "Consulting/Professional Services"
+  },
+  {
+    "source": "guimaras",
+    "title": "INVITATION TO BID FOR SUPPLY AND DELIVERY OF LED BULB",
+    "ref_no": "2026-07-264",
+    "category": "Invitation to Bid",
+    "date_posted": "2026-08-19",
+    "closing_date": null,
+    "url": "https://guimaras.gov.ph/invitation-to-bid/april-2025-2-2-2-2-2-2-2-2-2-2-2-3-2-2-2/",
+    "doc_url": "https://guimaras.gov.ph/wp-content/uploads/2026/08/2026-07-264.pdf",
+    "category_tag": "Goods & Supplies"
+  },
+  {
+    "source": "guimaras",
+    "title": "INVITATION TO BID FOR SUPPLY AND DELIVERY OF OFFICE SUPPLIES",
+    "ref_no": "2026-07-265",
+    "category": "Invitation to Bid",
+    "date_posted": "2026-08-19",
+    "closing_date": null,
+    "url": "https://guimaras.gov.ph/invitation-to-bid/april-2025-2-2-2-2-2-2-2-2-2-2-2-3-2-2-2/",
+    "doc_url": "https://guimaras.gov.ph/wp-content/uploads/2026/08/2026-07-265.pdf",
+    "category_tag": "Goods & Supplies"
+  },
+  {
+    "source": "guimaras",
+    "title": "INVITATION TO BID FOR SUPPLY AND DELIVERY OF FOOD AND VENUE FOR VARIOUS ACTIVITIES OF PHRMDO",
+    "ref_no": "2026-07-278",
+    "category": "Invitation to Bid",
+    "date_posted": "2026-08-19",
+    "closing_date": null,
+    "url": "https://guimaras.gov.ph/invitation-to-bid/april-2025-2-2-2-2-2-2-2-2-2-2-2-3-2-2-2/",
+    "doc_url": "https://guimaras.gov.ph/wp-content/uploads/2026/08/2026-07-278.pdf",
+    "category_tag": "Goods & Supplies"
+  },
+  {
+    "source": "guimaras",
+    "title": "INVITATION TO BID FOR SUPPLY AND DELIVERY OF CATERING SERVICE UNDER FRAMEWORK",
+    "ref_no": "2026-07-280",
+    "category": "Invitation to Bid",
+    "date_posted": "2026-08-19",
+    "closing_date": null,
+    "url": "https://guimaras.gov.ph/invitation-to-bid/april-2025-2-2-2-2-2-2-2-2-2-2-2-3-2-2-2/",
+    "doc_url": "https://guimaras.gov.ph/wp-content/uploads/2026/08/2026-08-280.pdf",
+    "category_tag": "Goods & Supplies"
+  },
+  {
     "source": "iloilo_province",
     "title": "SJH-26-803-B(REBID) LABORATORY SUPPLIES",
     "ref_no": "SJH-26-803-B",
@@ -9,6 +97,28 @@
     "url": "https://iloilo.gov.ph/en/node/16499",
     "doc_url": "https://drive.google.com/drive/folders/11z8-q5NPw8qdSF9KQi0ZVrvgsF3lUHD_?usp=sharing",
     "category_tag": "Goods & Supplies"
+  },
+  {
+    "source": "iloilo_province",
+    "title": "PPD-26-1010-B Bid Bulletin No. 2",
+    "ref_no": "PPD-26-1010-B",
+    "category": "Bids and Awards / Bid Bulletin",
+    "date_posted": "2026-08-13",
+    "closing_date": null,
+    "url": "https://iloilo.gov.ph/index.php/en/node/16506",
+    "doc_url": "https://drive.google.com/file/d/1xC0zY36sSffRp60VVSAjiw7n_wRYxrHA/view?usp=sharing",
+    "category_tag": "Other"
+  },
+  {
+    "source": "iloilo_province",
+    "title": "PHO-26-934-SVP Proposed Improvement of Provincial Health Office at Iloilo Provincial Capitol, Bonifacio Drive, Iloilo City",
+    "ref_no": "PHO-26-934-S",
+    "category": "Bids and Awards / Request for Quotation (RFQ)",
+    "date_posted": "2026-08-13",
+    "closing_date": null,
+    "url": "https://iloilo.gov.ph/en/node/16500",
+    "doc_url": "https://drive.google.com/drive/folders/1CFFZS8V-VlqxsZ35UiSE8J0wP_tqDnoH?usp=sharing",
+    "category_tag": "Construction/Infrastructure"
   },
   {
     "source": "iloilo_province",
@@ -199,6 +309,127 @@
   },
   {
     "source": "iloilo_province",
+    "title": "PPO-26-1080-SVP ADVOCACY KITS",
+    "ref_no": "PPO-26-1080-S",
+    "category": "Bids and Awards / Request for Quotation (RFQ)",
+    "date_posted": "2026-08-12",
+    "closing_date": null,
+    "url": "https://iloilo.gov.ph/en/node/16498",
+    "doc_url": "https://drive.google.com/file/d/1PBp9PlhNBxXHtl89NHE32l5o7AnYRo39/view?usp=sharing",
+    "category_tag": "Other"
+  },
+  {
+    "source": "iloilo_province",
+    "title": "JCH-26-933-B Power Load Assessment, ATS and Enclosed Circuit Breaker (ECB) of Jesus M. Colmenares District Hospital at Balasan, Iloilo",
+    "ref_no": "JCH-26-933-B",
+    "category": "Bids and Awards / Invitation To Bid",
+    "date_posted": "2026-08-12",
+    "closing_date": null,
+    "url": "https://iloilo.gov.ph/en/node/16497",
+    "doc_url": "https://drive.google.com/file/d/1yuur1v8e1-Y2ux5cEm0uZI68ECs4fFzt/view?usp=sharing",
+    "category_tag": "IT/Technology"
+  },
+  {
+    "source": "iloilo_province",
+    "title": "PEO-26-293-B EDDIE-C TRADERS (NTP & P.O.)",
+    "ref_no": "PEO-26-293-B",
+    "category": "Bids and Awards / Notice to Proceed",
+    "date_posted": "2026-08-12",
+    "closing_date": null,
+    "url": "https://iloilo.gov.ph/en/node/16495",
+    "doc_url": "https://drive.google.com/drive/folders/1FDNn-1X1yOrEBftrQ0eLNO9MaJ-2IWMl?usp=sharing",
+    "category_tag": "Other"
+  },
+  {
+    "source": "iloilo_province",
+    "title": "PEO-26-293-B EDDIE-C TRADERS (NOA & RESO LCRB)",
+    "ref_no": "PEO-26-293-B",
+    "category": "Resolutions / Bids and Awards / Notice of Awards",
+    "date_posted": "2026-08-12",
+    "closing_date": null,
+    "url": "https://iloilo.gov.ph/en/node/16494",
+    "doc_url": "https://drive.google.com/drive/folders/1KEJPPEnBfss4T7_OZOJFsIdX1ZIASFM6?usp=sharing",
+    "category_tag": "Other"
+  },
+  {
+    "source": "iloilo_province",
+    "title": "BID BULLETIN NO. 1",
+    "ref_no": null,
+    "category": "Bids and Awards / Bid Bulletin",
+    "date_posted": "2026-08-12",
+    "closing_date": null,
+    "url": "https://iloilo.gov.ph/en/node/16493",
+    "doc_url": "https://drive.google.com/drive/folders/1Unn5ja3FZ8QW2ZuVZ2e5_VFaWtcw8e9t?usp=sharing",
+    "category_tag": "Other"
+  },
+  {
+    "source": "iloilo_province",
+    "title": "SDH-26-324-B Upgrading/Improvement of Sara District Hospital, Sara,  Iloilo",
+    "ref_no": "SDH-26-324-B",
+    "category": "Bids and Awards / Invitation To Bid",
+    "date_posted": "2026-08-12",
+    "closing_date": null,
+    "url": "https://iloilo.gov.ph/en/node/16492",
+    "doc_url": "https://drive.google.com/file/d/12GvJHHrlQsuHzXzgLqQ_1wJ7vev41rYD/view?usp=sharing",
+    "category_tag": "IT/Technology"
+  },
+  {
+    "source": "iloilo_province",
+    "title": "PHO-26-1019-B DRUGS AND MEDICINES",
+    "ref_no": "PHO-26-1019-B",
+    "category": "Invitation To Bid",
+    "date_posted": "2026-08-12",
+    "closing_date": null,
+    "url": "https://iloilo.gov.ph/en/node/16491",
+    "doc_url": "https://drive.google.com/drive/folders/1cMD_egOIohZHOZoSLfCBT3JbpaQG-6Vg?usp=drive_link",
+    "category_tag": "Goods & Supplies"
+  },
+  {
+    "source": "iloilo_province",
+    "title": "PHO-26-1054-B INSTANT DRY CEREAL",
+    "ref_no": "PHO-26-1054-B",
+    "category": "Invitation To Bid",
+    "date_posted": "2026-08-12",
+    "closing_date": null,
+    "url": "https://iloilo.gov.ph/en/node/16490",
+    "doc_url": "https://drive.google.com/drive/folders/10t1l7bQg78Uyoc66CXCXOj9pTAkR2x1H?usp=drive_link",
+    "category_tag": "Other"
+  },
+  {
+    "source": "iloilo_province",
+    "title": "PHO-26-1058-B MICRONUTRIENT POWDER",
+    "ref_no": "PHO-26-1058-B",
+    "category": "Invitation To Bid",
+    "date_posted": "2026-08-12",
+    "closing_date": null,
+    "url": "https://iloilo.gov.ph/en/node/16489",
+    "doc_url": "https://drive.google.com/drive/folders/1juwxqWvkJm8XgEvnqg5er9nLTJAHkajj?usp=drive_link",
+    "category_tag": "Other"
+  },
+  {
+    "source": "iloilo_province",
+    "title": "PHO-26-1052-B READY TO USE THERAPEUTIC FOOD-LIPID BASED",
+    "ref_no": "PHO-26-1052-B",
+    "category": "Invitation To Bid",
+    "date_posted": "2026-08-12",
+    "closing_date": null,
+    "url": "https://iloilo.gov.ph/en/node/16485",
+    "doc_url": "https://drive.google.com/drive/folders/1X9lmOlWBl5ZmDMyWVZ3nUFsQ1YNi0ODT?usp=drive_link",
+    "category_tag": "Goods & Supplies"
+  },
+  {
+    "source": "iloilo_province",
+    "title": "PHO-26-1056-B IODIZED ROCK SALT",
+    "ref_no": "PHO-26-1056-B",
+    "category": "Invitation To Bid",
+    "date_posted": "2026-08-12",
+    "closing_date": null,
+    "url": "https://iloilo.gov.ph/en/node/16484",
+    "doc_url": "https://drive.google.com/drive/folders/1cy0uob0-m54eJves4VJpkJ8t4esxTLwr?usp=drive_link",
+    "category_tag": "Other"
+  },
+  {
+    "source": "iloilo_province",
     "title": "BID BULLETIN NO.1 PHO-26-877-B GO/EMERGENCY BAG",
     "ref_no": "PHO-26-877-B",
     "category": "Bid Bulletin",
@@ -327,6 +558,39 @@
     "closing_date": null,
     "url": "https://iloilo.gov.ph/index.php/en/node/16477",
     "doc_url": "https://drive.google.com/file/d/1Wxdqj-7kJv496XJ_5qbWQkzAUVwvx4ZW/view?usp=sharing",
+    "category_tag": "Other"
+  },
+  {
+    "source": "iloilo_province",
+    "title": "ITB /Landscaping at IFAPTC, ART Center, Brgy. Nanga, Pototan, Iloilo",
+    "ref_no": null,
+    "category": "Bids and Awards / Invitation To Bid",
+    "date_posted": "2026-08-11",
+    "closing_date": null,
+    "url": "https://iloilo.gov.ph/en/node/16483",
+    "doc_url": "https://drive.google.com/drive/folders/12CYFEVWrt1Gu0YKNRiNE_CF_MOfnqCi4?usp=drive_link",
+    "category_tag": "Other"
+  },
+  {
+    "source": "iloilo_province",
+    "title": "PPD-26-973-B Bid Bulletin No. 1",
+    "ref_no": "PPD-26-973-B",
+    "category": "Bids and Awards / Bid Bulletin",
+    "date_posted": "2026-08-11",
+    "closing_date": null,
+    "url": "https://iloilo.gov.ph/en/node/16481",
+    "doc_url": "https://drive.google.com/file/d/1q6SzFKBphHVJgSBnI6mFmJgIq3VBPWoZ/view?usp=sharing",
+    "category_tag": "Other"
+  },
+  {
+    "source": "iloilo_province",
+    "title": "PPD-26-973-B Bid Bulletin No. 1",
+    "ref_no": "PPD-26-973-B",
+    "category": "Bids and Awards / Bid Bulletin",
+    "date_posted": "2026-08-11",
+    "closing_date": null,
+    "url": "https://iloilo.gov.ph/en/node/16480",
+    "doc_url": "https://drive.google.com/file/d/1q6SzFKBphHVJgSBnI6mFmJgIq3VBPWoZ/view?usp=sharing",
     "category_tag": "Other"
   },
   {
