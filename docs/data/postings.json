@@ -34,6 +34,61 @@
   },
   {
     "source": "iloilo_province",
+    "title": "POS-26-1231-SVP FOOD AND ACCOMMODATION",
+    "ref_no": "POS-26-1231-S",
+    "category": "Bids and Awards / Request for Quotation (RFQ)",
+    "date_posted": "2026-09-30",
+    "closing_date": null,
+    "url": "https://iloilo.gov.ph/index.php/en/node/16956",
+    "doc_url": "https://drive.google.com/file/d/1ZO24k__9rDjUnJqF9u5o3HbFW8gF7iTG/view?usp=sharing",
+    "category_tag": "Goods & Supplies"
+  },
+  {
+    "source": "iloilo_province",
+    "title": "PTO-26-1253-B IT Equipment(Office Desktop Computer)",
+    "ref_no": "PTO-26-1253-B",
+    "category": "Bids and Awards / Invitation To Bid",
+    "date_posted": "2026-09-30",
+    "closing_date": null,
+    "url": "https://iloilo.gov.ph/index.php/en/node/16955",
+    "doc_url": "https://drive.google.com/file/d/1AW36G8XfOMqVg8wOYZuBDGAo6ozyKkPb/view?usp=sharing",
+    "category_tag": "IT/Technology"
+  },
+  {
+    "source": "iloilo_province",
+    "title": "PHO-26-1212-B DRUGS AND MEDICINES",
+    "ref_no": "PHO-26-1212-B",
+    "category": "Invitation To Bid",
+    "date_posted": "2026-09-30",
+    "closing_date": null,
+    "url": "https://iloilo.gov.ph/index.php/en/node/16954",
+    "doc_url": "https://drive.google.com/drive/folders/1OqWh5FhB7SdhX-Tn2Fj3lFv418xh1Uvl?usp=drive_link",
+    "category_tag": "Goods & Supplies"
+  },
+  {
+    "source": "iloilo_province",
+    "title": "NTP AND CONTRACT AGREEMENT PEO-26-506-B  G. UY CONSTRUCTION",
+    "ref_no": "PEO-26-506-B",
+    "category": "Bids and Awards / Notice to Proceed",
+    "date_posted": "2026-09-30",
+    "closing_date": null,
+    "url": "https://iloilo.gov.ph/index.php/en/node/16951",
+    "doc_url": "https://drive.google.com/drive/folders/1nU_HF-W4JLZ8F7O7hl5lrQHmKVDIyBGN?usp=sharing",
+    "category_tag": "Construction/Infrastructure"
+  },
+  {
+    "source": "iloilo_province",
+    "title": "NOA AND LCRB PEO-26-506-B  G. UY CONSTRUCTION",
+    "ref_no": "PEO-26-506-B",
+    "category": "Bids and Awards / Notice of Awards",
+    "date_posted": "2026-09-30",
+    "closing_date": null,
+    "url": "https://iloilo.gov.ph/index.php/en/node/16950",
+    "doc_url": "https://drive.google.com/drive/folders/1nU_HF-W4JLZ8F7O7hl5lrQHmKVDIyBGN?usp=sharing",
+    "category_tag": "Construction/Infrastructure"
+  },
+  {
+    "source": "iloilo_province",
     "title": "AGR-26-949-B (Rebid) Procurement of AGRICULTURAL PRODUCTS",
     "ref_no": "AGR-26-949-B",
     "category": "Bids and Awards / Bid Tender / Invitation To Bid",
