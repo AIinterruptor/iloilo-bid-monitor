@@ -1,6 +1,61 @@
 [
   {
     "source": "iloilo_province",
+    "title": "PEO-26-835-B (A) PPCC TRADING (NTP & P.O.)",
+    "ref_no": "PEO-26-835-B",
+    "category": "Bids and Awards / Notice to Proceed",
+    "date_posted": "2026-10-03",
+    "closing_date": null,
+    "url": "https://iloilo.gov.ph/index.php/en/node/17002",
+    "doc_url": "https://drive.google.com/drive/folders/1dkp1GaL4wd74vIFNFAOskdkc2s8008AU?usp=drive_link",
+    "category_tag": "Other"
+  },
+  {
+    "source": "iloilo_province",
+    "title": "PEO-26-835-B (A)  PPCC TRADING (NOA & RESO LCRB)",
+    "ref_no": "PEO-26-835-B",
+    "category": "Resolutions / Bids and Awards / Notice of Awards",
+    "date_posted": "2026-10-03",
+    "closing_date": null,
+    "url": "https://iloilo.gov.ph/en/node/17001",
+    "doc_url": "https://drive.google.com/drive/folders/1M99pWxxQJRfjxe1MZN9z3OQFWgkkYwBp?usp=sharing",
+    "category_tag": "Other"
+  },
+  {
+    "source": "iloilo_province",
+    "title": "PEO-26-758-B PCSC GASLINE CENTER (NTP & P.O.)",
+    "ref_no": "PEO-26-758-B",
+    "category": "Bids and Awards / Notice to Proceed",
+    "date_posted": "2026-10-03",
+    "closing_date": null,
+    "url": "https://iloilo.gov.ph/index.php/en/node/17000",
+    "doc_url": "https://drive.google.com/drive/folders/14nvAxKcZ0QqRADnZo5t3FjZPKFOx8Ta0?usp=drive_link",
+    "category_tag": "Other"
+  },
+  {
+    "source": "iloilo_province",
+    "title": "PEO-26-758-B PCSC GASLINE CENTER (NOA & RESO LCRB)",
+    "ref_no": "PEO-26-758-B",
+    "category": "Resolutions / Bids and Awards / Notice of Awards",
+    "date_posted": "2026-10-03",
+    "closing_date": null,
+    "url": "https://iloilo.gov.ph/index.php/en/node/16999",
+    "doc_url": "https://drive.google.com/drive/folders/1slgyV8EjfwTb_t3p3yilSEe1zDshGmYS?usp=sharing",
+    "category_tag": "Other"
+  },
+  {
+    "source": "iloilo_province",
+    "title": "RTH-25-1720-B(REBID) NOA - NTP - P.O.",
+    "ref_no": "RTH-25-1720-B",
+    "category": "Bids and Awards / Notice of Awards / Notice to Proceed",
+    "date_posted": "2026-10-03",
+    "closing_date": null,
+    "url": "https://iloilo.gov.ph/en/node/16998",
+    "doc_url": "https://drive.google.com/file/d/1chgXv7G5aI0rig65kZDZVWPap7MLAm2Z/view?usp=sharing",
+    "category_tag": "Other"
+  },
+  {
+    "source": "iloilo_province",
     "title": "AGR-26-1194-B Procurement of AGRICULTURAL SUPPLIES",
     "ref_no": "AGR-26-1194-B",
     "category": "Bids and Awards / Bid Tender / Invitation To Bid",
