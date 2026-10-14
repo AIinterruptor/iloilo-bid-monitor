@@ -1,6 +1,105 @@
 [
   {
     "source": "iloilo_province",
+    "title": "HRM-26-940-SVP FOOD CATERING AWARD",
+    "ref_no": "HRM-26-940-S",
+    "category": "Bids and Awards / Notice of Awards / Notice to Proceed",
+    "date_posted": "2026-10-14",
+    "closing_date": null,
+    "url": "https://iloilo.gov.ph/en/node/17135",
+    "doc_url": "https://drive.google.com/file/d/1-vbZqvhUly29RvGugVfZr9CLhkMw7-OH/view?usp=sharing",
+    "category_tag": "Goods & Supplies"
+  },
+  {
+    "source": "iloilo_province",
+    "title": "DDH-26-311-NP(TF) LABORATORY SUPPLIES",
+    "ref_no": "DDH-26-311-N",
+    "category": "Bids and Awards / Request for Quotation (RFQ)",
+    "date_posted": "2026-10-14",
+    "closing_date": null,
+    "url": "https://iloilo.gov.ph/en/node/17134",
+    "doc_url": "https://drive.google.com/file/d/1T9OXuUOM6PV6yH1TjfEXQ3pJiextVPO6/view?usp=sharing",
+    "category_tag": "Goods & Supplies"
+  },
+  {
+    "source": "iloilo_province",
+    "title": "IPH-26-549-B AWARD",
+    "ref_no": "IPH-26-549-B",
+    "category": "Bids and Awards / Notice of Awards / Notice to Proceed",
+    "date_posted": "2026-10-14",
+    "closing_date": null,
+    "url": "https://iloilo.gov.ph/en/node/17133",
+    "doc_url": "https://drive.google.com/file/d/1pvJJaYBpmau0lhokehNy7bldRnB6SxVM/view?usp=drive_link",
+    "category_tag": "Other"
+  },
+  {
+    "source": "iloilo_province",
+    "title": "GOV-26-1261-SVP/Procurement of Repair of Service Vehicle",
+    "ref_no": "GOV-26-1261-S",
+    "category": "Bids and Awards / Request for Quotation (RFQ)",
+    "date_posted": "2026-10-14",
+    "closing_date": null,
+    "url": "https://iloilo.gov.ph/en/node/17132",
+    "doc_url": "https://drive.google.com/file/d/1ndBJufSBB4mE53c8Tg8oJdzfSZb4TfhL/view?usp=drive_link",
+    "category_tag": "Construction/Infrastructure"
+  },
+  {
+    "source": "iloilo_province",
+    "title": "NOA PO NTP",
+    "ref_no": null,
+    "category": "Bids and Awards / Notice of Awards / Notice to Proceed",
+    "date_posted": "2026-10-14",
+    "closing_date": null,
+    "url": "https://iloilo.gov.ph/en/node/17131",
+    "doc_url": "https://drive.google.com/drive/folders/1j66fRqfW6GsVP72qxI9HcV1zshDghcy5?usp=sharing",
+    "category_tag": "Other"
+  },
+  {
+    "source": "iloilo_province",
+    "title": "PHO-26-1316-SVP FOOD AND VENUE",
+    "ref_no": "PHO-26-1316-S",
+    "category": "Request for Quotation (RFQ)",
+    "date_posted": "2026-10-14",
+    "closing_date": null,
+    "url": "https://iloilo.gov.ph/en/node/17130",
+    "doc_url": "https://drive.google.com/drive/folders/1lrehsIOhTo2wXQRCc1Y6MfGx8vCny0_F?usp=drive_link",
+    "category_tag": "Goods & Supplies"
+  },
+  {
+    "source": "iloilo_province",
+    "title": "NOA NTP PO",
+    "ref_no": null,
+    "category": "Bids and Awards / Notice of Awards / Notice to Proceed",
+    "date_posted": "2026-10-14",
+    "closing_date": null,
+    "url": "https://iloilo.gov.ph/en/node/17129",
+    "doc_url": "https://drive.google.com/drive/folders/16jbEwseNaT7TzyKnNgN5Zptfr0Fw_4jw?usp=sharing",
+    "category_tag": "Other"
+  },
+  {
+    "source": "iloilo_province",
+    "title": "ASS-26-202-SVP IT PERIPHERALS",
+    "ref_no": "ASS-26-202-S",
+    "category": "Bids and Awards / Bid Bulletin",
+    "date_posted": "2026-10-14",
+    "closing_date": null,
+    "url": "https://iloilo.gov.ph/en/node/17128",
+    "doc_url": "https://drive.google.com/file/d/1ws9mfNl8t4l-7Irw_fnr099agkaHckuJ/view?usp=sharing",
+    "category_tag": "Other"
+  },
+  {
+    "source": "iloilo_province",
+    "title": "NOA PO NTP",
+    "ref_no": null,
+    "category": "Bids and Awards / Notice of Awards / Notice to Proceed",
+    "date_posted": "2026-10-14",
+    "closing_date": null,
+    "url": "https://iloilo.gov.ph/en/node/17127",
+    "doc_url": "https://drive.google.com/drive/folders/11LikC-ktTVYZXTA58cVDM2HI93rDXUkp?usp=sharing",
+    "category_tag": "Other"
+  },
+  {
+    "source": "iloilo_province",
     "title": "NTH-26-999-B(REBID) DRUGS AND MEDICINES",
     "ref_no": "NTH-26-999-B",
     "category": "Bids and Awards / Bid Tender / Invitation To Bid",
@@ -185,6 +284,127 @@
     "url": "https://iloilo.gov.ph/index.php/en/node/17105",
     "doc_url": "https://drive.google.com/drive/folders/18E0DGEtwqgu8MtKR3_tYhtm4sHpDXzZr?usp=sharing",
     "category_tag": "Goods & Supplies"
+  },
+  {
+    "source": "iloilo_province",
+    "title": "NTH-26-999-B(REBID) DRUGS AND MEDICINES",
+    "ref_no": "NTH-26-999-B",
+    "category": "Bids and Awards / Bid Tender / Invitation To Bid",
+    "date_posted": "2026-10-13",
+    "closing_date": null,
+    "url": "https://iloilo.gov.ph/en/node/17126",
+    "doc_url": "https://drive.google.com/drive/folders/1o15Kd6MSk5vDL-lF7_QlBdIUx4QZT5pC?usp=sharing",
+    "category_tag": "Goods & Supplies"
+  },
+  {
+    "source": "iloilo_province",
+    "title": "NTH-26-832-B(REBID) Medical Supplies",
+    "ref_no": "NTH-26-832-B",
+    "category": "Bids and Awards / Bid Tender / Invitation To Bid",
+    "date_posted": "2026-10-13",
+    "closing_date": null,
+    "url": "https://iloilo.gov.ph/en/node/17125",
+    "doc_url": "https://drive.google.com/drive/folders/1c4ZjEuzhT7C2_BGA3qLysk2NejemiBb5?usp=sharing",
+    "category_tag": "Goods & Supplies"
+  },
+  {
+    "source": "iloilo_province",
+    "title": "AGR-26-883-B (Rebid) Procurement of AGRICULTURAL PRODUCTS",
+    "ref_no": "AGR-26-883-B",
+    "category": "Bids and Awards / Bid Tender / Invitation To Bid",
+    "date_posted": "2026-10-13",
+    "closing_date": null,
+    "url": "https://iloilo.gov.ph/en/node/17124",
+    "doc_url": "https://drive.google.com/file/d/1x1a73NJxQth0GIzp832UABLbXgDFb8tv/view?usp=drive_link",
+    "category_tag": "Other"
+  },
+  {
+    "source": "iloilo_province",
+    "title": "AGR-26-889-B (Rebid) Procurement of AGRICULTURAL PRODUCTS",
+    "ref_no": "AGR-26-889-B",
+    "category": "Bids and Awards / Bid Tender / Invitation To Bid",
+    "date_posted": "2026-10-13",
+    "closing_date": null,
+    "url": "https://iloilo.gov.ph/en/node/17123",
+    "doc_url": "https://drive.google.com/file/d/1wlLHHO6IVfWB9UGUd2DiW6dKQAsUY9Kj/view?usp=drive_link",
+    "category_tag": "Other"
+  },
+  {
+    "source": "iloilo_province",
+    "title": "RPT-26-704-NP (AGENCY TO AGENCY) AWARD",
+    "ref_no": "RPT-26-704-N",
+    "category": "Bids and Awards / Notice of Awards / Notice to Proceed",
+    "date_posted": "2026-10-13",
+    "closing_date": null,
+    "url": "https://iloilo.gov.ph/en/node/17122",
+    "doc_url": "https://drive.google.com/file/d/1zoaY78phtZ3ZayrJje2J5rmUwdXdiLo5/view?usp=sharing",
+    "category_tag": "Other"
+  },
+  {
+    "source": "iloilo_province",
+    "title": "AGR-26-1196-B Procurement of AGRICULTURAL PRODUCTS",
+    "ref_no": "AGR-26-1196-B",
+    "category": "Bids and Awards / Bid Tender / Invitation To Bid",
+    "date_posted": "2026-10-13",
+    "closing_date": null,
+    "url": "https://iloilo.gov.ph/en/node/17121",
+    "doc_url": "https://drive.google.com/file/d/1mTF6X2MRdbnqIJyYIJzpwbI2LBcjVIfw/view?usp=drive_link",
+    "category_tag": "Other"
+  },
+  {
+    "source": "iloilo_province",
+    "title": "PSB-26-942-B FOOD AND ACCOMMODATION AWARD",
+    "ref_no": "PSB-26-942-B",
+    "category": "Bids and Awards / Notice of Awards / Notice to Proceed",
+    "date_posted": "2026-10-13",
+    "closing_date": null,
+    "url": "https://iloilo.gov.ph/en/node/17120",
+    "doc_url": "https://drive.google.com/file/d/1tUN3sh5OOJLDiCuFwnj69PsTRVsmoY9g/view?usp=sharing",
+    "category_tag": "Goods & Supplies"
+  },
+  {
+    "source": "iloilo_province",
+    "title": "ASS-26-1159-B QUEUING SYSTEM HARDWARE PACKAGE",
+    "ref_no": "ASS-26-1159-B",
+    "category": "Bids and Awards / Bid Bulletin",
+    "date_posted": "2026-10-13",
+    "closing_date": null,
+    "url": "https://iloilo.gov.ph/en/node/17119",
+    "doc_url": "https://drive.google.com/drive/folders/1Gr3dLZaHL8h5XRTFQ1acGKlato4b7UVD?usp=sharing",
+    "category_tag": "IT/Technology"
+  },
+  {
+    "source": "iloilo_province",
+    "title": "AGR-26-1201-B Procurement of CONSTRUCTION SUPPLIES",
+    "ref_no": "AGR-26-1201-B",
+    "category": "Bids and Awards / Bid Tender / Invitation To Bid",
+    "date_posted": "2026-10-13",
+    "closing_date": null,
+    "url": "https://iloilo.gov.ph/en/node/17118",
+    "doc_url": "https://drive.google.com/file/d/1Ii-GlAr3xtCF5Rl4XkLZd-qzilo6YVya/view?usp=drive_link",
+    "category_tag": "Construction/Infrastructure"
+  },
+  {
+    "source": "iloilo_province",
+    "title": "AGR-26-1193-B Procurement of AGRICULTURAL PRODUCTS",
+    "ref_no": "AGR-26-1193-B",
+    "category": "Bids and Awards / Bid Tender / Invitation To Bid",
+    "date_posted": "2026-10-13",
+    "closing_date": null,
+    "url": "https://iloilo.gov.ph/en/node/17117",
+    "doc_url": "https://drive.google.com/file/d/1S8tBX2LH9Rm3tV62q_IrIGuDqFQhR5Rc/view?usp=drive_link",
+    "category_tag": "Other"
+  },
+  {
+    "source": "iloilo_province",
+    "title": "AGR-26-1192-B Procurement of GENERAL MERCHANDISE",
+    "ref_no": "AGR-26-1192-B",
+    "category": "Bids and Awards / Bid Tender / Invitation To Bid",
+    "date_posted": "2026-10-13",
+    "closing_date": null,
+    "url": "https://iloilo.gov.ph/en/node/17116",
+    "doc_url": "https://drive.google.com/file/d/1hfVsEYrJhQnhlhOArcZeJufsFWkHhwVT/view?usp=drive_link",
+    "category_tag": "Other"
   },
   {
     "source": "iloilo_province",
