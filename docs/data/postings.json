@@ -67,6 +67,72 @@
   },
   {
     "source": "iloilo_province",
+    "title": "RPT-26-711-B (B) HOUSEKEEPING NOA,PO,NTP,LCRB",
+    "ref_no": "RPT-26-711-B",
+    "category": "Bids and Awards / Notice of Awards / Notice to Proceed",
+    "date_posted": "2026-10-31",
+    "closing_date": null,
+    "url": "https://iloilo.gov.ph/index.php/en/node/17306",
+    "doc_url": "https://drive.google.com/drive/folders/1_2u-7Vu_Du8C9kdsK2_vw1x8nBwCQVHV?usp=sharing",
+    "category_tag": "Other"
+  },
+  {
+    "source": "iloilo_province",
+    "title": "RPT-26-711-B (A) HAOUSEKEEPING NOA,PO,NTP,LCRB",
+    "ref_no": "RPT-26-711-B",
+    "category": "Bids and Awards / Notice of Awards / Notice to Proceed",
+    "date_posted": "2026-10-31",
+    "closing_date": null,
+    "url": "https://iloilo.gov.ph/index.php/en/node/17305",
+    "doc_url": "https://drive.google.com/drive/folders/17QICxk1lLjTq5wa7Ff-R-FPnWqtjtiGP?usp=sharing",
+    "category_tag": "Other"
+  },
+  {
+    "source": "iloilo_province",
+    "title": "PPO-26-1445-SVP CATERING SERVICES",
+    "ref_no": "PPO-26-1445-S",
+    "category": "Bids and Awards / Request for Quotation (RFQ)",
+    "date_posted": "2026-10-31",
+    "closing_date": null,
+    "url": "https://iloilo.gov.ph/index.php/en/node/17304",
+    "doc_url": "https://drive.google.com/file/d/11Wxw_0VoIlk1FqT9ISL9ys1HWtyusR84/view?usp=sharing",
+    "category_tag": "Goods & Supplies"
+  },
+  {
+    "source": "iloilo_province",
+    "title": "PPD-26-1473-SVP FOOD CATERING",
+    "ref_no": "PPD-26-1473-S",
+    "category": "Bids and Awards / Request for Quotation (RFQ)",
+    "date_posted": "2026-10-31",
+    "closing_date": null,
+    "url": "https://iloilo.gov.ph/index.php/en/node/17303",
+    "doc_url": "https://drive.google.com/file/d/1CX9qCo-5G_O8ssjpoLc--BMCzYVqd4Vf/view?usp=sharing",
+    "category_tag": "Goods & Supplies"
+  },
+  {
+    "source": "iloilo_province",
+    "title": "SPO-26-1447-SVP CATERING",
+    "ref_no": "SPO-26-1447-S",
+    "category": "Bids and Awards / Request for Quotation (RFQ)",
+    "date_posted": "2026-10-31",
+    "closing_date": null,
+    "url": "https://iloilo.gov.ph/index.php/en/node/17302",
+    "doc_url": "https://drive.google.com/file/d/1aMnNFI2HHHPqvWM4YZ8qSO2AeVDAwld-/view?usp=sharing",
+    "category_tag": "Goods & Supplies"
+  },
+  {
+    "source": "iloilo_province",
+    "title": "RPT-26-761-B NOA,PO,NTP,LCRB",
+    "ref_no": "RPT-26-761-B",
+    "category": "Bids and Awards / Notice of Awards / Notice to Proceed",
+    "date_posted": "2026-10-31",
+    "closing_date": null,
+    "url": "https://iloilo.gov.ph/index.php/en/node/17301",
+    "doc_url": "https://drive.google.com/drive/folders/1l5qKn0H3j0NEC1y7TIHr81H9CRUBvCM6?usp=sharing",
+    "category_tag": "Other"
+  },
+  {
+    "source": "iloilo_province",
     "title": "PEO-26-1127-B (REBID) Purchase of One (1) Unit Sieve Shaker - Bid Bulletin No.1",
     "ref_no": "PEO-26-1127-B",
     "category": "Bids and Awards / Bid Bulletin",
